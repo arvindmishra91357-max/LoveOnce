@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 8899;
+const PORT = process.env.PORT || 8899;
 const MIME_TYPES = {
   '.html': 'text/html',
   '.css': 'text/css',
@@ -59,6 +59,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`LoveOnce server running at http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`LoveOnce server running on port ${PORT}`);
 });

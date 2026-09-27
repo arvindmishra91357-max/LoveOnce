@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: loveonce
+    runtime: static
+    buildCommand: ""
+    publishPath: .

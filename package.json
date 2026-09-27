@@ -1,0 +1,19 @@
+{
+  "name": "loveonce",
+  "version": "1.0.0",
+  "description": "LoveOnce - Romantic experience website with Indian background music system",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "keywords": [
+    "romantic",
+    "love",
+    "music"
+  ],
+  "author": "Arvind Mishra",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

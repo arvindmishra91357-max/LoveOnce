@@ -7,9 +7,10 @@ A private, modern romantic love story web experience enhanced with an emotional,
 ## 🎵 Background Music System Features
 
 ### 1. Seamless Audio Playback & Looping
-- **Track**: Pre-configured with Claude Debussy's classical masterpiece *Clair de Lune* for a dreamy, emotional, romantic ambience.
+- **Track**: Pre-configured with a soulful Indian romantic flute melody (*Krishna Flute — Harsh Saklani*) set permanently to 100% volume for an enchanting, cinematic ambience.
 - **Audio Element**: Native HTML5 `<audio id="loveOnceMusic" loop preload="auto">` ensuring peak 60fps performance without audio glitches or external CDN dependencies.
 - **Looping**: Configured with `audio.loop = true;` for continuous ambient playback as the user explores every section.
+- **Permanent 100% Volume**: Defaults to full 1.0 volume across refreshes and sessions.
 - **Easy Customization**: Simply replace `assets/music/loveonce.mp3` with your own MP3 file at any time.
 
 ### 2. Browser Autoplay Handling & First-Interaction Experience

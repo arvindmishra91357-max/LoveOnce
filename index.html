@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>LoveOnce — A Private Romantic Love Story</title>
+  <meta name="description" content="A private romantic love story with blooming roses, a pulsing I LOVE YOU heart, heartfelt letters, and atmospheric ambient music.">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Romantic Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff1a53'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Ambient Starry Sky Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- HTML5 Background Audio Player -->
+  <audio id="loveOnceMusic" loop preload="auto">
+    <source src="assets/music/loveonce.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ========================================================================
+       ELEGANT FIRST-INTERACTION WELCOME OVERLAY ("Tap to Enter LoveOnce")
+       Ensures seamless audio autoplay compliance across all modern browsers
+       ======================================================================== -->
+  <div id="welcomeOverlay" class="welcome-overlay" role="dialog" aria-modal="true" aria-label="Welcome to LoveOnce">
+    <div class="welcome-card">
+      <div class="welcome-heart-icon">💗</div>
+      <h2 class="welcome-title">LoveOnce</h2>
+      <p class="welcome-subtitle">A Private Romantic Love Story</p>
+      <p class="welcome-note">
+        "Every love story is beautiful, but ours is my favorite."
+        <br>
+        Enter into our quiet realm of glowing stars, velvet roses, and soft music.
+      </p>
+      <button id="welcomeEnterBtn" class="welcome-enter-btn" type="button">
+        <span>🎵</span>
+        <span>Tap to Enter LoveOnce</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SITE NAVIGATION HEADER
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo" aria-label="LoveOnce Home">
+        <span>💗</span> LoveOnce
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link">Our Story</a></li>
+          <li><a href="#garden" class="nav-link">🌹 Garden</a></li>
+          <li><a href="#heart" class="nav-link">💗 The Heart</a></li>
+          <li><a href="#reasons" class="nav-link">Why You</a></li>
+          <li><a href="#memories" class="nav-link">Memories</a></li>
+          <li><a href="#letter" class="nav-link">Love Letter</a></li>
+          <li><a href="#lovemeter" class="nav-link">Love Meter</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-nav-heart btn-send-heart" aria-label="Send Me A Heart">
+          <span>💖</span>
+          <span>Send A Heart</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="romantic-badge">
+            <span>✦</span>
+            <span>OUR UNENDING STORY</span>
+            <span>✦</span>
+          </div>
+
+          <h1 class="hero-title">
+            To The One Who Holds My <br>
+            <span class="gradient-text">Heart Forever</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            "In all the universe, across all stars and timelines, my heart was always searching for you."
+          </p>
+
+          <p class="hero-description">
+            Welcome to our private haven of memories, unspoken words, and eternal love. Every rose blooming below, every beat of the glowing heart, and every gentle note in the air belongs entirely to you.
+          </p>
+
+          <div class="hero-cta-group">
+            <button type="button" class="btn-primary-heart btn-send-heart">
+              <span>💖</span>
+              <span>Send Me A Heart</span>
+            </button>
+            <button type="button" class="btn-glass-rain btn-make-rain">
+              <span>✨</span>
+              <span>Make It Rain Love</span>
+            </button>
+            <a href="#letter" class="btn-glass-rain" style="text-decoration: none;">
+              <span>💌</span>
+              <span>Read My Letter</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <div class="hero-stat-number">100%</div>
+              <div class="hero-stat-label">Devotion</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="hero-stat-number">♾️</div>
+              <div class="hero-stat-label">Timeless Love</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="hero-stat-number">1 & Only</div>
+              <div class="hero-stat-label">My Soulmate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         🌹 FLOWER / GARDEN SECTION
+         ======================================================================== -->
+    <section id="garden" class="section-block garden-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">🌹 The Enchanted Garden</span>
+          <h2 class="section-title">Where Our Love Blooms</h2>
+          <p class="section-subtitle">
+            "Like roses in eternal spring, our affection grows deeper with every passing breath."
+          </p>
+        </div>
+
+        <div class="garden-card-wrapper">
+          <div class="garden-canvas-box">
+            <canvas id="flowerCanvas"></canvas>
+            <div class="garden-overlay-info">
+              <div class="garden-badge">
+                <span>🌹</span>
+                <span>Living Rose Garden • Swaying in gentle breeze</span>
+              </div>
+              <div class="garden-controls">
+                <button type="button" id="bloomRosesBtn" class="btn-garden-action">
+                  <span>🌸 Bloom More Roses</span>
+                </button>
+                <button type="button" id="scatterPetalsBtn" class="btn-garden-action">
+                  <span>✨ Scatter Petals</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         💗 "I LOVE YOU" PARAMETRIC HEART SECTION
+         ======================================================================== -->
+    <section id="heart" class="section-block heart-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">💗 The Eternal Rhythm</span>
+          <h2 class="section-title">The Heart That Beats Only For You</h2>
+          <p class="section-subtitle">
+            "Echoing through every dimension in repeated whisper: I love you."
+          </p>
+        </div>
+
+        <div class="heart-card-wrapper">
+          <div class="heart-canvas-box">
+            <canvas id="heartCanvas"></canvas>
+          </div>
+          <div class="heart-interactive-bar">
+            <div class="heart-speed-pill">
+              <span>💓 Mathematical Heart Curve:</span>
+              <code style="color: var(--primary-pink); margin-left: 0.4rem;">x = 16·sin³(t)</code>
+            </div>
+            <button type="button" class="btn-primary-heart btn-send-heart">
+              <span>💖 Pulse My Love</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         REASONS SECTION (GLASSMORPHIC CARDS)
+         ======================================================================== -->
+    <section id="reasons" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">✨ Whispers of My Heart</span>
+          <h2 class="section-title">Why I Fall For You Every Day</h2>
+          <p class="section-subtitle">
+            "A thousand reasons, yet every reason leads back to the beauty of your soul."
+          </p>
+        </div>
+
+        <div class="reasons-grid">
+          <div class="reason-card">
+            <div class="reason-icon-wrapper">✨</div>
+            <h3 class="reason-title">Your Unmatched Smile</h3>
+            <p class="reason-text">
+              The effortless way your eyes sparkle when you smile can illuminate the darkest room. It’s my favorite view in the entire world.
+            </p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-icon-wrapper">🌸</div>
+            <h3 class="reason-title">Your Gentle Soul</h3>
+            <p class="reason-text">
+              The warmth in your voice, the empathy in your touch, and the gentle grace you carry with you everywhere you go.
+            </p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-icon-wrapper">🌙</div>
+            <h3 class="reason-title">Late Night Conversations</h3>
+            <p class="reason-text">
+              When the entire world has fallen asleep, and hours melt into minutes talking about our dreams, silly thoughts, and quiet hopes.
+            </p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-icon-wrapper">⏳</div>
+            <h3 class="reason-title">The Way Time Stops</h3>
+            <p class="reason-text">
+              Whenever I am with you, chaos fades into pure peace. Every second in your presence feels like a timeless, sacred dream.
+            </p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-icon-wrapper">🕊️</div>
+            <h3 class="reason-title">How Safe You Make Me Feel</h3>
+            <p class="reason-text">
+              In your arms, all my doubts and worries dissolve. You give me a sanctuary of quiet comfort and unwavering love.
+            </p>
+          </div>
+
+          <div class="reason-card">
+            <div class="reason-icon-wrapper">🏡</div>
+            <h3 class="reason-title">You Are My True Home</h3>
+            <p class="reason-text">
+              Home isn’t four walls or a city on a map. Home is wherever your hand is gently holding mine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MEMORIES SECTION (POLAROID GLASS CARDS)
+         ======================================================================== -->
+    <section id="memories" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">📸 Chapters of Us</span>
+          <h2 class="section-title">Moments Etched In Eternity</h2>
+          <p class="section-subtitle">
+            "Treasured snapshots of the journey that brought our two worlds together."
+          </p>
+        </div>
+
+        <div class="memories-grid">
+          <div class="memory-polaroid">
+            <div class="memory-img-box">
+              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <radialGradient id="g1" cx="50%" cy="50%" r="70%">
+                    <stop offset="0%" stop-color="#ff5e8a" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#120315"/>
+                  </radialGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#g1)"/>
+                <circle cx="200" cy="150" r="70" fill="none" stroke="#ff1a53" stroke-width="2" stroke-dasharray="8 6"/>
+                <text x="200" y="155" fill="#fff" font-family="'Playfair Display', serif" font-size="36" text-anchor="middle">✨</text>
+              </svg>
+              <div class="memory-date-tag">Chapter 1</div>
+            </div>
+            <div class="memory-info">
+              <h3 class="memory-title">The First Glance</h3>
+              <p class="memory-caption">"When our eyes met and my heart knew."</p>
+            </div>
+          </div>
+
+          <div class="memory-polaroid">
+            <div class="memory-img-box">
+              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <radialGradient id="g2" cx="50%" cy="50%" r="70%">
+                    <stop offset="0%" stop-color="#ffd166" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#18041d"/>
+                  </radialGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#g2)"/>
+                <polygon points="200,60 220,120 280,120 230,160 250,220 200,180 150,220 170,160 120,120 180,120" fill="none" stroke="#ffd166" stroke-width="2"/>
+                <text x="200" y="155" fill="#fff" font-family="'Playfair Display', serif" font-size="36" text-anchor="middle">🌙</text>
+              </svg>
+              <div class="memory-date-tag">Chapter 2</div>
+            </div>
+            <div class="memory-info">
+              <h3 class="memory-title">Starlit Whispers</h3>
+              <p class="memory-caption">"Walking together under the midnight moon."</p>
+            </div>
+          </div>
+
+          <div class="memory-polaroid">
+            <div class="memory-img-box">
+              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <radialGradient id="g3" cx="50%" cy="50%" r="70%">
+                    <stop offset="0%" stop-color="#ff1a53" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#0e0212"/>
+                  </radialGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#g3)"/>
+                <path d="M200,210 C160,170 120,140 120,100 C120,70 145,50 175,50 C188,50 200,60 200,60 C200,60 212,50 225,50 C255,50 280,70 280,100 C280,140 240,170 200,210 Z" fill="none" stroke="#ff5e8a" stroke-width="2"/>
+                <text x="200" y="140" fill="#fff" font-family="'Playfair Display', serif" font-size="36" text-anchor="middle">💖</text>
+              </svg>
+              <div class="memory-date-tag">Chapter 3</div>
+            </div>
+            <div class="memory-info">
+              <h3 class="memory-title">Unspoken Promises</h3>
+              <p class="memory-caption">"Holding hands in the rain with nothing left to fear."</p>
+            </div>
+          </div>
+
+          <div class="memory-polaroid">
+            <div class="memory-img-box">
+              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <radialGradient id="g4" cx="50%" cy="50%" r="70%">
+                    <stop offset="0%" stop-color="#e6005c" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#1b031f"/>
+                  </radialGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#g4)"/>
+                <text x="200" y="155" fill="#fff" font-family="'Playfair Display', serif" font-size="52" text-anchor="middle">♾️</text>
+              </svg>
+              <div class="memory-date-tag">Eternity</div>
+            </div>
+            <div class="memory-info">
+              <h3 class="memory-title">Our Endless Tomorrow</h3>
+              <p class="memory-caption">"A lifetime of adventures still waiting to unfold."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         💌 LOVE LETTER SECTION (INTERACTIVE WAX-SEALED ENVELOPE)
+         ======================================================================== -->
+    <section id="letter" class="section-block letter-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">💌 Sealed With Devotion</span>
+          <h2 class="section-title">A Letter Written For You</h2>
+          <p class="section-subtitle">
+            "Take a quiet moment, listen to the music, and read what my heart longs to say."
+          </p>
+        </div>
+
+        <div class="letter-wrapper">
+          <!-- Sealed Envelope Card -->
+          <div id="letterEnvelope" class="envelope-card">
+            <div class="wax-seal">💗</div>
+            <h3 class="envelope-prompt">A Private Message For You</h3>
+            <p class="envelope-subtext">Click the seal to unfold the handwritten parchment</p>
+            <button type="button" id="openLetterBtn" class="btn-open-letter">
+              <span>💌</span>
+              <span>Open My Love Letter</span>
+            </button>
+          </div>
+
+          <!-- Unfolded Handwritten Letter (Appears with smooth animation & audio swell) -->
+          <div id="unfoldedLetter" class="unfolded-letter">
+            <button type="button" id="closeLetterBtn" class="letter-close-btn" aria-label="Close Letter">&times;</button>
+            <h3 class="letter-heading">My Dearest Love,</h3>
+            <div class="letter-body">
+              <p>
+                If I had to live my life all over again, I would find you sooner so that I could love you longer.
+              </p>
+              <br>
+              <p>
+                From the moment you entered my world, everything changed. Colors became brighter, music sounded sweeter, and every quiet dream I held found its destination in your smile.
+              </p>
+              <br>
+              <p>
+                Thank you for being my anchor when storms rise, my laughter when joy is shared, and my favorite thought at the end of every long day. No matter where the winds of tomorrow take us, my heart will forever beat in harmony with yours.
+              </p>
+            </div>
+            <div class="letter-signoff">
+              Forever and always,<br>
+              Yours completely 💗
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         💖 CELESTIAL LOVE METER SECTION
+         ======================================================================== -->
+    <section id="lovemeter" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">💖 The Celestial Meter</span>
+          <h2 class="section-title">Cosmic Compatibility</h2>
+          <p class="section-subtitle">
+            "Written in the stars, tested across infinity."
+          </p>
+        </div>
+
+        <div class="meter-card">
+          <div class="meter-inputs">
+            <input type="text" class="meter-input" id="meterName1" value="You" aria-label="First Name">
+            <div class="meter-heart-connector">💗</div>
+            <input type="text" class="meter-input" id="meterName2" value="Me" aria-label="Second Name">
+          </div>
+
+          <button type="button" id="calculateMeterBtn" class="btn-primary-heart">
+            <span>✨ Calculate Our Love Affinity</span>
+          </button>
+
+          <div class="meter-progress-track">
+            <div id="meterProgressFill" class="meter-progress-fill"></div>
+          </div>
+
+          <div id="meterResultNumber" class="meter-result-number">100% ♾️</div>
+          <div id="meterResultDesc" class="meter-result-desc">Destined for Infinite Eternity ✨</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         🎁 FINAL ROMANTIC SURPRISE SECTION
+         ======================================================================== -->
+    <section id="surprise" class="section-block">
+      <div class="container">
+        <div class="surprise-card">
+          <div class="surprise-heart-badge">🎁</div>
+          <h2 class="section-title">The Secret Final Surprise</h2>
+          <p class="section-subtitle" style="margin-bottom: 2rem;">
+            "Before you go, there is one last confession waiting for you."
+          </p>
+          <button type="button" id="revealSurpriseBtn" class="surprise-btn">
+            <span>✨ Reveal The Final Surprise</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SURPRISE MODAL DIALOG
+       ======================================================================== -->
+  <div id="modalBackdrop" class="modal-backdrop"></div>
+  <div id="surpriseModal" class="surprise-modal" role="dialog" aria-modal="true" aria-labelledby="surpriseTitle">
+    <div style="font-size: 3.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 20px #ff1a53);">💖</div>
+    <h3 id="surpriseTitle" class="surprise-modal-title">My Heart Is Yours</h3>
+    <p class="surprise-modal-text">"You are my today, my tomorrow, and all of my forevers."</p>
+    <p class="surprise-modal-quote">
+      "LoveOnce is not just a website. It is a monument of all the joy, gratitude, and devotion I hold for you in every waking second."
+    </p>
+    <button type="button" id="closeSurpriseBtn" class="btn-primary-heart">
+      <span>💗 Keep Loving You Forever</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-quote">"Two souls, one heart, endless love."</p>
+      <p class="footer-copy">Crafted with eternal devotion for LoveOnce &bull; &copy; 2026</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       FLOATING MUSIC BUTTON & VOLUME CONTROL PANEL
+       ======================================================================== -->
+  <div id="musicContainer" class="music-floating-container">
+    <!-- Volume & Settings Panel Popup -->
+    <div id="musicPanel" class="music-panel" aria-hidden="true" role="region" aria-label="Music Controls">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>🎵</span>
+          <span>LoveOnce Music</span>
+        </div>
+        <button type="button" id="panelCloseBtn" class="panel-close-btn" aria-label="Close music controls">&times;</button>
+      </div>
+
+      <div class="panel-track-info">
+        <div class="track-name">Krishna Flute</div>
+        <div class="track-artist">Harsh Saklani • Indian Romantic Flute</div>
+      </div>
+
+      <div class="panel-controls-row">
+        <button type="button" id="panelPlayBtn" class="btn-panel-play" aria-label="Play or Pause Music">
+          ▶
+        </button>
+        <button type="button" id="panelToggleBtn" class="btn-panel-toggle" aria-label="Toggle Music On or Off">
+          <span>💗</span> Music On
+        </button>
+      </div>
+
+      <div class="panel-volume-group">
+        <div class="volume-label-row">
+          <span>Volume</span>
+          <span id="volumeVal">100%</span>
+        </div>
+        <div class="volume-slider-row">
+          <button type="button" id="muteBtn" class="btn-mute-toggle" aria-label="Mute or Unmute">
+            🔊
+          </button>
+          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="100" aria-label="Volume Slider">
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Circular Music Button with Equalizer -->
+    <button id="floatingMusicBtn" class="floating-music-btn paused" type="button" aria-label="Toggle Background Music Controls">
+      <!-- Animated Equalizer Bars when playing -->
+      <div class="music-equalizer" aria-hidden="true">
+        <span class="eq-bar"></span>
+        <span class="eq-bar"></span>
+        <span class="eq-bar"></span>
+        <span class="eq-bar"></span>
+      </div>
+      <!-- Muted icon when paused -->
+      <span class="music-muted-icon" aria-hidden="true">🔇</span>
+      
+      <!-- Mini floating music notes -->
+      <span class="music-note-particle" style="top: 2px; left: 10px; animation-delay: 0s;">♪</span>
+      <span class="music-note-particle" style="top: 8px; right: 8px; animation-delay: 1.2s;">♫</span>
+      <span class="music-note-particle" style="bottom: 4px; left: 14px; animation-delay: 2.1s;">♩</span>
+    </button>
+
+    <!-- Status Tooltip Pill -->
+    <div id="musicTooltip" class="music-tooltip" role="status">
+      🔇 Music Off
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/music.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

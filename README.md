@@ -1,5 +1,7 @@
 # 💗 LoveOnce — Romantic Background Music Experience
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/arvindmishra91357-max/LoveOnce)
+
 A private, modern romantic love story web experience enhanced with an emotional, cinematic background music system, blooming flower garden, pulsing mathematical "I LOVE YOU" heart, and interactive love features.
 
 ---

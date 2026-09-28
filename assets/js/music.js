@@ -33,18 +33,18 @@ class LoveOnceMusicSystem {
     this.STORAGE_KEY_ENABLED = 'loveonceMusicEnabled';
     this.STORAGE_KEY_VOLUME = 'loveonceMusicVolume';
 
-    // State - Permanent 100% Volume
+    // State - Romantic Low Volume Default (0.10)
     const savedEnabled = localStorage.getItem(this.STORAGE_KEY_ENABLED);
     this.musicEnabled = savedEnabled !== 'false'; // Enabled by default
     
-    // Always default to 100% (1.0) volume
+    // Always default to 0.10 (low, barely audible, romantic volume)
     const savedVol = localStorage.getItem(this.STORAGE_KEY_VOLUME);
-    this.savedVolume = (savedVol !== null && !isNaN(Number(savedVol))) ? Number(savedVol) : 1.0;
+    this.savedVolume = (savedVol !== null && !isNaN(Number(savedVol))) ? Number(savedVol) : 0.10;
     
-    // Ensure permanent 100% if not previously explicitly adjusted
+    // Store 0.10 default if not previously adjusted
     if (savedVol === null) {
-      this.savedVolume = 1.0;
-      localStorage.setItem(this.STORAGE_KEY_VOLUME, '1.0');
+      this.savedVolume = 0.10;
+      localStorage.setItem(this.STORAGE_KEY_VOLUME, '0.10');
     }
     
     this.currentVolume = this.savedVolume;
@@ -451,14 +451,17 @@ class LoveOnceMusicSystem {
    */
   updateUIState(isPlaying) {
     if (this.floatingBtn) {
+      const labelSpan = this.floatingBtn.querySelector('.music-btn-label');
       if (isPlaying) {
         this.floatingBtn.classList.add('playing');
         this.floatingBtn.classList.remove('paused');
         this.floatingBtn.setAttribute('title', 'Playing Love (Click for Controls)');
+        if (labelSpan) labelSpan.textContent = '💗 ♪';
       } else {
         this.floatingBtn.classList.remove('playing');
         this.floatingBtn.classList.add('paused');
         this.floatingBtn.setAttribute('title', 'Music Off (Click for Controls)');
+        if (labelSpan) labelSpan.textContent = '🔇';
       }
     }
 

@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>LoveOnce — A Private Romantic Love Story</title>
-  <meta name="description" content="A private romantic love story with blooming roses, a pulsing I LOVE YOU heart, heartfelt letters, and atmospheric ambient music.">
+  <meta name="description" content="A private romantic digital love experience with personalized memories, Ghibli storybook art, blooming roses, love book, and hidden chat.">
+  
+  <!-- PWA & Mobile Capabilities -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080309">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LoveOnce">
   
   <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +23,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   
   <!-- Romantic Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff1a53'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icon-heart.svg">
 </head>
 <body>
 
@@ -29,32 +37,47 @@
 
   <!-- ========================================================================
        ELEGANT FIRST-INTERACTION WELCOME OVERLAY ("Tap to Enter LoveOnce")
-       Ensures seamless audio autoplay compliance across all modern browsers
+       Requirement 23: Staged Magical Opening Experience
        ======================================================================== -->
   <div id="welcomeOverlay" class="welcome-overlay" role="dialog" aria-modal="true" aria-label="Welcome to LoveOnce">
     <div class="welcome-card">
       <div class="welcome-heart-icon">💗</div>
       <h2 class="welcome-title">LoveOnce</h2>
-      <p class="welcome-subtitle">A Private Romantic Love Story</p>
+      <p class="welcome-subtitle" id="welcomePartnerSubtitle">For Someone Very Special...</p>
+      
+      <!-- Blooming Flower Animation -->
+      <div style="margin: 1.2rem auto; width: 64px; height: 64px;">
+        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; filter: drop-shadow(0 0 12px #ff1a53);">
+          <path d="M50 75 Q48 55 50 35" stroke="#4ade80" stroke-width="3" fill="none" />
+          <path d="M50 50 Q30 45 42 35" stroke="#4ade80" stroke-width="2" fill="none" />
+          <circle cx="50" cy="30" r="14" fill="#ff1a53" opacity="0.9" />
+          <circle cx="44" cy="26" r="10" fill="#ff5e8a" opacity="0.8" />
+          <circle cx="56" cy="26" r="10" fill="#ff5e8a" opacity="0.8" />
+          <circle cx="50" cy="22" r="8" fill="#ffd166" opacity="0.9" />
+        </svg>
+      </div>
+
       <p class="welcome-note">
-        "Every love story is beautiful, but ours is my favorite."
+        "Some stories are meant to be kept forever..."
         <br>
         Enter into our quiet realm of glowing stars, velvet roses, and soft music.
       </p>
       <button id="welcomeEnterBtn" class="welcome-enter-btn" type="button">
         <span>🎵</span>
-        <span>Tap to Enter LoveOnce</span>
+        <span>Tap to Enter Our Story 💗</span>
       </button>
     </div>
   </div>
 
   <!-- ========================================================================
        SITE NAVIGATION HEADER
+       (No visible "Chat" button in nav as per Requirement 10!)
        ======================================================================== -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="#" class="brand-logo" aria-label="LoveOnce Home">
         <span>💗</span> LoveOnce
+        <span class="partner-header-tag" id="partnerHeaderTag">✦ For My Love</span>
       </a>
 
       <nav aria-label="Main Navigation">
@@ -62,14 +85,24 @@
           <li><a href="#hero" class="nav-link">Our Story</a></li>
           <li><a href="#garden" class="nav-link">🌹 Garden</a></li>
           <li><a href="#heart" class="nav-link">💗 The Heart</a></li>
+          <li><a href="#lovebook" class="nav-link">📖 Love Book</a></li>
+          <li><a href="#memories" class="nav-link">📸 Memories</a></li>
+          <li><a href="#timeline" class="nav-link">⏳ Timeline</a></li>
           <li><a href="#reasons" class="nav-link">Why You</a></li>
-          <li><a href="#memories" class="nav-link">Memories</a></li>
           <li><a href="#letter" class="nav-link">Love Letter</a></li>
           <li><a href="#lovemeter" class="nav-link">Love Meter</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
+        <button type="button" id="openCreatorBtn" class="btn-nav-creator" title="Personalize this experience">
+          <span>✨</span>
+          <span>Story Creator</span>
+        </button>
+        <button type="button" id="openShareBtn" class="btn-nav-share" title="Share with your partner">
+          <span>🔗</span>
+          <span>Share</span>
+        </button>
         <button type="button" class="btn-nav-heart btn-send-heart" aria-label="Send Me A Heart">
           <span>💖</span>
           <span>Send A Heart</span>
@@ -79,15 +112,16 @@
   </header>
 
   <!-- ========================================================================
-       HERO SECTION
+       MAIN CONTENT
        ======================================================================== -->
   <main>
+    <!-- HERO SECTION -->
     <section id="hero" class="hero-section">
       <div class="container">
         <div class="hero-content">
           <div class="romantic-badge">
             <span>✦</span>
-            <span>OUR UNENDING STORY</span>
+            <span id="heroPartnerBadge">OUR UNENDING STORY • FOR MY LOVE</span>
             <span>✦</span>
           </div>
 
@@ -96,13 +130,18 @@
             <span class="gradient-text">Heart Forever</span>
           </h1>
 
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" id="heroRomanticSubtitle">
             "In all the universe, across all stars and timelines, my heart was always searching for you."
           </p>
 
-          <p class="hero-description">
+          <p class="hero-description" id="heroRomanticDesc">
             Welcome to our private haven of memories, unspoken words, and eternal love. Every rose blooming below, every beat of the glowing heart, and every gentle note in the air belongs entirely to you.
           </p>
+
+          <!-- Dynamic Anniversary Love Counter -->
+          <div class="hero-anniversary-counter" id="heroLoveCounter" style="margin-bottom: 2rem; font-family: var(--font-serif); font-size: 1.05rem; color: var(--accent-gold); letter-spacing: 0.5px;">
+            ❤️ Together since 14 February 2025 • Counting our forevers...
+          </div>
 
           <div class="hero-cta-group">
             <button type="button" class="btn-primary-heart btn-send-heart">
@@ -113,15 +152,23 @@
               <span>✨</span>
               <span>Make It Rain Love</span>
             </button>
+            <a href="#lovebook" class="btn-glass-rain" style="text-decoration: none;">
+              <span>📖</span>
+              <span>Our Love Book</span>
+            </a>
             <a href="#letter" class="btn-glass-rain" style="text-decoration: none;">
               <span>💌</span>
               <span>Read My Letter</span>
             </a>
+            <button type="button" id="heroStoryCreatorBtn" class="btn-glass-rain">
+              <span>✨</span>
+              <span>Story Creator</span>
+            </button>
           </div>
 
           <div class="hero-stats-row">
             <div class="hero-stat-item">
-              <div class="hero-stat-number">100%</div>
+              <div class="hero-stat-number" id="heroDevotionStat">100%</div>
               <div class="hero-stat-label">Devotion</div>
             </div>
             <div class="hero-stat-item">
@@ -129,13 +176,29 @@
               <div class="hero-stat-label">Timeless Love</div>
             </div>
             <div class="hero-stat-item">
-              <div class="hero-stat-number">1 & Only</div>
-              <div class="hero-stat-label">My Soulmate</div>
+              <div class="hero-stat-number" id="heroSoulmateStat">1 & Only</div>
+              <div class="hero-stat-label" id="heroSoulmateLabel">My Soulmate</div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ========================================================================
+         SECRET CHAT DISCOVERY BAR (Requirement 10, 11, 12)
+         Subtle whisper input looking like part of the romantic poetry
+         ======================================================================== -->
+    <div class="secret-search-container">
+      <div class="secret-search-box">
+        <span class="secret-search-icon">✨</span>
+        <input type="text" id="secretDiscoveryInput" class="secret-search-input" placeholder="Search our secret..." autocomplete="off" spellcheck="false">
+        <button type="button" id="secretDiscoveryBtn" class="secret-discovery-btn" title="Unlock Our Secret">🗝️</button>
+      </div>
+      <div id="secretDiscoveryToast" class="secret-discovery-toast">
+        <span>✨</span>
+        <span>Secret Found • Unlocking Our Private Place...</span>
+      </div>
+    </div>
 
     <!-- ========================================================================
          🌹 FLOWER / GARDEN SECTION
@@ -174,6 +237,7 @@
 
     <!-- ========================================================================
          💗 "I LOVE YOU" PARAMETRIC HEART SECTION
+         (Clicking canvas spawns "I LOVE YOU" floating particles - Req 35)
          ======================================================================== -->
     <section id="heart" class="section-block heart-section">
       <div class="container">
@@ -197,6 +261,37 @@
             <button type="button" class="btn-primary-heart btn-send-heart">
               <span>💖 Pulse My Love</span>
             </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         📖 OUR LITTLE BOOK OF LOVE ❤️ (Requirement 5 & 6)
+         Interactive digital book with two-page spread (desktop) and swipe (mobile)
+         ======================================================================== -->
+    <section id="lovebook" class="section-block love-book-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">📖 Chapter & Verse</span>
+          <h2 class="section-title">Our Little Book of Love</h2>
+          <p class="section-subtitle">
+            "A storybook written by two hearts, bound in quiet memories, and blooming with everlasting flowers."
+          </p>
+        </div>
+
+        <div class="book-stage">
+          <div class="book-wrapper" id="bookWrapper">
+            <div class="book-spine-effect"></div>
+            <div class="book-dual-pages" id="bookPagesContainer">
+              <!-- Dynamically rendered pages with smooth page flips -->
+            </div>
+          </div>
+
+          <div class="book-controls-row">
+            <button type="button" id="bookPrevBtn" class="btn-book-nav">← Previous Page</button>
+            <div id="bookPageIndicator" class="book-page-counter">Page 1 of 8</div>
+            <button type="button" id="bookNextBtn" class="btn-book-nav">Next Page →</button>
           </div>
         </div>
       </div>
@@ -268,7 +363,7 @@
     </section>
 
     <!-- ========================================================================
-         MEMORIES SECTION (POLAROID GLASS CARDS)
+         📸 MEMORIES & GHIBLI-INSPIRED ART SECTION (Requirements 2, 3, 4)
          ======================================================================== -->
     <section id="memories" class="section-block">
       <div class="container">
@@ -276,93 +371,46 @@
           <span class="section-tag">📸 Chapters of Us</span>
           <h2 class="section-title">Moments Etched In Eternity</h2>
           <p class="section-subtitle">
-            "Treasured snapshots of the journey that brought our two worlds together."
+            "Upload our favorite snapshots, transform them into soft Ghibli-inspired storybook illustrations, and craft romantic captions."
           </p>
         </div>
 
-        <div class="memories-grid">
-          <div class="memory-polaroid">
-            <div class="memory-img-box">
-              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <radialGradient id="g1" cx="50%" cy="50%" r="70%">
-                    <stop offset="0%" stop-color="#ff5e8a" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#120315"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g1)"/>
-                <circle cx="200" cy="150" r="70" fill="none" stroke="#ff1a53" stroke-width="2" stroke-dasharray="8 6"/>
-                <text x="200" y="155" fill="#fff" font-family="'Playfair Display', serif" font-size="36" text-anchor="middle">✨</text>
-              </svg>
-              <div class="memory-date-tag">Chapter 1</div>
-            </div>
-            <div class="memory-info">
-              <h3 class="memory-title">The First Glance</h3>
-              <p class="memory-caption">"When our eyes met and my heart knew."</p>
-            </div>
+        <!-- Add Our Memories Upload Bar -->
+        <div class="memories-upload-bar">
+          <div class="upload-prompt-text">
+            <h3>Add Our Memories</h3>
+            <p>Upload your photos (JPG, PNG, WEBP) to transform them into soft, hand-painted romantic illustrations.</p>
           </div>
+          <div>
+            <input type="file" id="memoryFileInput" accept="image/jpeg,image/png,image/webp,image/jpg" multiple style="display: none;">
+            <button type="button" id="triggerUploadBtn" class="btn-add-memory">
+              <span>+</span> Add Memory Photo
+            </button>
+          </div>
+        </div>
 
-          <div class="memory-polaroid">
-            <div class="memory-img-box">
-              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <radialGradient id="g2" cx="50%" cy="50%" r="70%">
-                    <stop offset="0%" stop-color="#ffd166" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#18041d"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g2)"/>
-                <polygon points="200,60 220,120 280,120 230,160 250,220 200,180 150,220 170,160 120,120 180,120" fill="none" stroke="#ffd166" stroke-width="2"/>
-                <text x="200" y="155" fill="#fff" font-family="'Playfair Display', serif" font-size="36" text-anchor="middle">🌙</text>
-              </svg>
-              <div class="memory-date-tag">Chapter 2</div>
-            </div>
-            <div class="memory-info">
-              <h3 class="memory-title">Starlit Whispers</h3>
-              <p class="memory-caption">"Walking together under the midnight moon."</p>
-            </div>
-          </div>
+        <!-- Grid of Memories with Art Transformations -->
+        <div class="memories-grid" id="memoriesGridContainer">
+          <!-- Populated from story memories with Ghibli art toggles & captions -->
+        </div>
+      </div>
+    </section>
 
-          <div class="memory-polaroid">
-            <div class="memory-img-box">
-              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <radialGradient id="g3" cx="50%" cy="50%" r="70%">
-                    <stop offset="0%" stop-color="#ff1a53" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#0e0212"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g3)"/>
-                <path d="M200,210 C160,170 120,140 120,100 C120,70 145,50 175,50 C188,50 200,60 200,60 C200,60 212,50 225,50 C255,50 280,70 280,100 C280,140 240,170 200,210 Z" fill="none" stroke="#ff5e8a" stroke-width="2"/>
-                <text x="200" y="140" fill="#fff" font-family="'Playfair Display', serif" font-size="36" text-anchor="middle">💖</text>
-              </svg>
-              <div class="memory-date-tag">Chapter 3</div>
-            </div>
-            <div class="memory-info">
-              <h3 class="memory-title">Unspoken Promises</h3>
-              <p class="memory-caption">"Holding hands in the rain with nothing left to fear."</p>
-            </div>
-          </div>
+    <!-- ========================================================================
+         ⏳ PHOTO BOOK TIMELINE SECTION (Requirement 7)
+         ======================================================================== -->
+    <section id="timeline" class="section-block timeline-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">⏳ The Golden Path</span>
+          <h2 class="section-title">Our Love Story Timeline</h2>
+          <p class="section-subtitle">
+            "Every milestone, every whispered promise, and every step that led our hearts together."
+          </p>
+        </div>
 
-          <div class="memory-polaroid">
-            <div class="memory-img-box">
-              <svg class="memory-art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <radialGradient id="g4" cx="50%" cy="50%" r="70%">
-                    <stop offset="0%" stop-color="#e6005c" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#1b031f"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g4)"/>
-                <text x="200" y="155" fill="#fff" font-family="'Playfair Display', serif" font-size="52" text-anchor="middle">♾️</text>
-              </svg>
-              <div class="memory-date-tag">Eternity</div>
-            </div>
-            <div class="memory-info">
-              <h3 class="memory-title">Our Endless Tomorrow</h3>
-              <p class="memory-caption">"A lifetime of adventures still waiting to unfold."</p>
-            </div>
-          </div>
+        <div class="timeline-track" id="timelineTrackContainer">
+          <!-- Populated with milestones -->
         </div>
       </div>
     </section>
@@ -392,11 +440,11 @@
             </button>
           </div>
 
-          <!-- Unfolded Handwritten Letter (Appears with smooth animation & audio swell) -->
+          <!-- Unfolded Handwritten Letter -->
           <div id="unfoldedLetter" class="unfolded-letter">
             <button type="button" id="closeLetterBtn" class="letter-close-btn" aria-label="Close Letter">&times;</button>
-            <h3 class="letter-heading">My Dearest Love,</h3>
-            <div class="letter-body">
+            <h3 class="letter-heading" id="letterRecipientHeading">My Dearest Love,</h3>
+            <div class="letter-body" id="letterBodyContent">
               <p>
                 If I had to live my life all over again, I would find you sooner so that I could love you longer.
               </p>
@@ -409,7 +457,7 @@
                 Thank you for being my anchor when storms rise, my laughter when joy is shared, and my favorite thought at the end of every long day. No matter where the winds of tomorrow take us, my heart will forever beat in harmony with yours.
               </p>
             </div>
-            <div class="letter-signoff">
+            <div class="letter-signoff" id="letterSignoffContent">
               Forever and always,<br>
               Yours completely 💗
             </div>
@@ -433,9 +481,9 @@
 
         <div class="meter-card">
           <div class="meter-inputs">
-            <input type="text" class="meter-input" id="meterName1" value="You" aria-label="First Name">
+            <input type="text" class="meter-input" id="meterName1" value="My Love" aria-label="Partner Name">
             <div class="meter-heart-connector">💗</div>
-            <input type="text" class="meter-input" id="meterName2" value="Me" aria-label="Second Name">
+            <input type="text" class="meter-input" id="meterName2" value="Arvind" aria-label="Your Name">
           </div>
 
           <button type="button" id="calculateMeterBtn" class="btn-primary-heart">
@@ -453,15 +501,15 @@
     </section>
 
     <!-- ========================================================================
-         🎁 FINAL ROMANTIC SURPRISE SECTION
+         🎁 FINAL ROMANTIC SURPRISE SECTION (Requirements 36 & 37)
          ======================================================================== -->
     <section id="surprise" class="section-block">
       <div class="container">
         <div class="surprise-card">
           <div class="surprise-heart-badge">🎁</div>
-          <h2 class="section-title">The Secret Final Surprise</h2>
+          <h2 class="section-title">One Last Thing...</h2>
           <p class="section-subtitle" style="margin-bottom: 2rem;">
-            "Before you go, there is one last confession waiting for you."
+            "Before you go, there is one last question waiting for your heart."
           </p>
           <button type="button" id="revealSurpriseBtn" class="surprise-btn">
             <span>✨ Reveal The Final Surprise</span>
@@ -472,19 +520,183 @@
   </main>
 
   <!-- ========================================================================
-       SURPRISE MODAL DIALOG
+       SURPRISE MODAL DIALOG ("Would you choose me again?" - Req 36 & 37)
        ======================================================================== -->
   <div id="modalBackdrop" class="modal-backdrop"></div>
   <div id="surpriseModal" class="surprise-modal" role="dialog" aria-modal="true" aria-labelledby="surpriseTitle">
     <div style="font-size: 3.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 20px #ff1a53);">💖</div>
-    <h3 id="surpriseTitle" class="surprise-modal-title">My Heart Is Yours</h3>
-    <p class="surprise-modal-text">"You are my today, my tomorrow, and all of my forevers."</p>
-    <p class="surprise-modal-quote">
-      "LoveOnce is not just a website. It is a monument of all the joy, gratitude, and devotion I hold for you in every waking second."
+    <h3 id="surpriseTitle" class="surprise-modal-title">Would You Choose Me Again?</h3>
+    <p class="surprise-modal-text">"In every lifetime, across every galaxy and universe, my heart will always seek yours."</p>
+    
+    <div style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+      <button type="button" id="surpriseAlwaysBtn" class="btn-primary-heart">
+        <span>Always ❤️</span>
+      </button>
+      <button type="button" id="surpriseForeverBtn" class="btn-primary-heart">
+        <span>Forever 💗</span>
+      </button>
+    </div>
+
+    <p class="surprise-modal-quote" id="surpriseFinalQuote">
+      "Our story isn't finished... Because every day with you is another page. To be continued... ❤️"
     </p>
-    <button type="button" id="closeSurpriseBtn" class="btn-primary-heart">
-      <span>💗 Keep Loving You Forever</span>
+    <button type="button" id="closeSurpriseBtn" class="btn-glass-rain">
+      <span>📖 Open To Final Love Book Page</span>
     </button>
+  </div>
+
+  <!-- ========================================================================
+       💬 HIDDEN LOVE CHAT ROOM MODAL (Requirements 10-22)
+       Real-Time Messenger between devices with SSE, Search, Media & Reactions
+       ======================================================================== -->
+  <div id="hiddenChatModal" class="chat-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="chatHeaderTitle">
+    <div class="chat-window">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">💗</div>
+          <div class="chat-title-group">
+            <h3 id="chatHeaderTitle">❤️ Our Secret Place</h3>
+            <div class="chat-status-pill">
+              <span class="chat-status-dot"></span>
+              <span id="chatRoomIdBadge">LOV-8F42KQ</span> • Realtime Online
+            </div>
+          </div>
+        </div>
+        <button type="button" id="closeChatBtn" class="panel-close-btn" aria-label="Close Hidden Chat">&times;</button>
+      </div>
+
+      <!-- Message Search Bar -->
+      <div class="chat-search-wrap">
+        <input type="text" id="chatSearchInput" class="chat-search-input" placeholder="🔍 Search our memories..." autocomplete="off">
+      </div>
+
+      <!-- Messages Container -->
+      <div class="chat-messages-scroll" id="chatMessagesScroll">
+        <!-- Messages inserted here -->
+      </div>
+
+      <!-- Chat Input Bar -->
+      <form id="chatForm" class="chat-input-bar">
+        <input type="file" id="chatPhotoInput" accept="image/*" style="display: none;">
+        <button type="button" id="chatAttachBtn" class="btn-chat-attach" title="Send Photo">📷</button>
+        <input type="text" id="chatTextInput" class="chat-input-field" placeholder="Whisper something sweet..." autocomplete="off">
+        <button type="button" id="chatHeartQuickBtn" class="btn-msg-action" title="Send Heart">💖</button>
+        <button type="submit" class="btn-chat-send" title="Send Message">➤</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast for Hidden Chat -->
+  <div id="chatNotificationToast" class="chat-secret-toast" style="display: none;">
+    <span>💗</span>
+    <span>You have a new secret message.</span>
+  </div>
+
+  <!-- ========================================================================
+       🛠️ SENDER DASHBOARD / STORY CREATOR MODAL (Requirement 1, 25)
+       Full GUI personalization for Partner Name, Love Letter, Photos, Keyword
+       ======================================================================== -->
+  <div id="creatorModal" class="creator-modal-backdrop" role="dialog" aria-modal="true">
+    <div class="creator-modal-card">
+      <div class="creator-header">
+        <h3><span>✨</span> Personalize Your LoveOnce Story</h3>
+        <button type="button" id="closeCreatorBtn" class="panel-close-btn">&times;</button>
+      </div>
+      <div class="creator-body">
+        <form id="creatorForm">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Partner's Name</label>
+              <input type="text" id="creatorPartnerName" class="form-control" placeholder="My Love" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" id="creatorYourName" class="form-control" placeholder="Arvind" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Relationship / Anniversary Date</label>
+              <input type="text" id="creatorRelDate" class="form-control" placeholder="14 February 2025">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Special Milestone / Date</label>
+              <input type="text" id="creatorSpecialDate" class="form-control" placeholder="Our First Starlit Walk">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Favorite Memory</label>
+            <input type="text" id="creatorFavMemory" class="form-control" placeholder="Walking together under the midnight sky...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Custom Romantic Message (Hero)</label>
+            <textarea id="creatorRomMessage" class="form-control" rows="2" placeholder="In all the universe, across all stars and timelines..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Custom Love Letter</label>
+            <textarea id="creatorLoveLetter" class="form-control" rows="4" placeholder="My Dearest Love..."></textarea>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Secret Chat Keyword (Told Separately)</label>
+              <input type="text" id="creatorSecretKeyword" class="form-control" placeholder="moonlight" value="moonlight">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Signature Flower</label>
+              <select id="creatorFlowerSelect" class="form-control">
+                <option value="rose">🌹 Red Rose</option>
+                <option value="tulip">🌷 Sweet Tulip</option>
+                <option value="sunflower">🌻 Radiant Sunflower</option>
+                <option value="cherry_blossom">🌸 Cherry Blossom</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="creator-footer">
+        <button type="button" id="cancelCreatorBtn" class="btn-glass-rain">Cancel</button>
+        <button type="button" id="saveStoryBtn" class="btn-primary-heart">
+          <span>💾 Save & Generate LoveOnce Story</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       🔗 SHARE MODAL (Requirement 26)
+       ======================================================================== -->
+  <div id="shareModal" class="creator-modal-backdrop" role="dialog" aria-modal="true">
+    <div class="share-modal-card">
+      <div class="creator-header" style="padding: 0 0 1rem 0; margin-bottom: 1rem;">
+        <h3><span>🔗</span> Share Your LoveOnce Story</h3>
+        <button type="button" id="closeShareBtn" class="panel-close-btn">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        Send this personalized link to your partner. Everything you configured will load automatically!
+      </p>
+      <div class="form-group">
+        <input type="text" id="shareUrlInput" class="form-control" readonly style="cursor: pointer; font-size: 0.85rem;">
+      </div>
+      <div class="share-options-grid">
+        <button type="button" id="shareCopyLinkBtn" class="share-btn">📋 Copy Story Link</button>
+        <button type="button" id="shareWhatsAppBtn" class="share-btn">💬 WhatsApp</button>
+        <button type="button" id="shareTelegramBtn" class="share-btn">✈️ Telegram</button>
+        <button type="button" id="shareNativeBtn" class="share-btn">📱 More Apps...</button>
+      </div>
+      <div class="secret-key-share-box">
+        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">Your Secret Chat Keyword (Share Separately):</div>
+        <div id="shareSecretKeywordDisplay" class="secret-key-display">moonlight</div>
+        <button type="button" id="shareCopyKeywordBtn" class="btn-msg-action" style="margin-top: 0.3rem;">📋 Copy Keyword Only</button>
+        <div style="font-size: 0.72rem; color: var(--accent-gold); margin-top: 0.4rem;">
+          🔒 For security, this keyword is NOT inside the public URL.
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ========================================================================
@@ -498,7 +710,7 @@
   </footer>
 
   <!-- ========================================================================
-       FLOATING MUSIC BUTTON & VOLUME CONTROL PANEL
+       FLOATING MUSIC BUTTON & VOLUME CONTROL PANEL (Requirements 8 & 9)
        ======================================================================== -->
   <div id="musicContainer" class="music-floating-container">
     <!-- Volume & Settings Panel Popup -->
@@ -512,8 +724,8 @@
       </div>
 
       <div class="panel-track-info">
-        <div class="track-name">Krishna Flute</div>
-        <div class="track-artist">Harsh Saklani • Indian Romantic Flute</div>
+        <div class="track-name">Romantic Atmosphere</div>
+        <div class="track-artist">Indian Romantic Flute & Atmosphere</div>
       </div>
 
       <div class="panel-controls-row">
@@ -528,19 +740,20 @@
       <div class="panel-volume-group">
         <div class="volume-label-row">
           <span>Volume</span>
-          <span id="volumeVal">100%</span>
+          <span id="volumeVal">10%</span>
         </div>
         <div class="volume-slider-row">
           <button type="button" id="muteBtn" class="btn-mute-toggle" aria-label="Mute or Unmute">
             🔊
           </button>
-          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="100" aria-label="Volume Slider">
+          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="10" aria-label="Volume Slider">
         </div>
       </div>
     </div>
 
-    <!-- Floating Circular Music Button with Equalizer -->
+    <!-- Floating Circular Music Button -->
     <button id="floatingMusicBtn" class="floating-music-btn paused" type="button" aria-label="Toggle Background Music Controls">
+      <span class="music-btn-label">🔇</span>
       <!-- Animated Equalizer Bars when playing -->
       <div class="music-equalizer" aria-hidden="true">
         <span class="eq-bar"></span>
@@ -548,8 +761,6 @@
         <span class="eq-bar"></span>
         <span class="eq-bar"></span>
       </div>
-      <!-- Muted icon when paused -->
-      <span class="music-muted-icon" aria-hidden="true">🔇</span>
       
       <!-- Mini floating music notes -->
       <span class="music-note-particle" style="top: 2px; left: 10px; animation-delay: 0s;">♪</span>

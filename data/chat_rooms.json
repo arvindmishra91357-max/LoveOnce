@@ -1,0 +1,59 @@
+{
+  "LOV-8F42KQ": {
+    "id": "LOV-8F42KQ",
+    "name": "Our Secret Place",
+    "salt": "ee502b76424954e2547643c9fe36615b",
+    "keywordHash": "b9952ed7a30c9a4f837c4a3383a38e21b396902b26f77dd2ade81c8c69c4110a",
+    "fallbackKeywordHash": "f3a4d979176650b1cfab4a3235de2230331bcb5828941cbbfc76bfd6a99e0641",
+    "createdAt": "2026-09-28T06:50:35.754Z",
+    "messages": [
+      {
+        "id": "msg-init-1",
+        "sender": "Arvind",
+        "text": "Welcome to our secret place. Every word written here stays between us forever. ❤️",
+        "timestamp": "2026-09-28T05:50:35.756Z",
+        "reactions": {
+          "❤️": 1
+        }
+      },
+      {
+        "id": "msg-init-2",
+        "sender": "My Love",
+        "text": "I found our secret... I love you so much. ✨",
+        "timestamp": "2026-09-28T06:20:35.756Z",
+        "reactions": {
+          "🌹": 1
+        }
+      },
+      {
+        "id": "msg-1790578394365-b35fea",
+        "sender": "Arvind",
+        "text": "I promise to love you forever and always ❤️",
+        "photo": null,
+        "photoArt": null,
+        "type": "text",
+        "timestamp": "2026-09-28T06:53:14.366Z",
+        "reactions": {}
+      }
+    ],
+    "updatedAt": "2026-09-28T06:53:14.366Z"
+  },
+  "LOV-86C6A1": {
+    "id": "LOV-86C6A1",
+    "name": "Sweetheart Secret Place",
+    "salt": "451969d1fc8f7f4ce9c7c2b4b9bf4310",
+    "keywordHash": "d18fd3c5a361a2b1615ce34b6f29742d19999093dc887b7ce348f9fd22cb446e",
+    "createdAt": "2026-09-28T06:56:53.603Z",
+    "messages": [
+      {
+        "id": "msg-welcome",
+        "sender": "Arvind",
+        "text": "Welcome to our secret haven, Sweetheart. Everything we say here stays here forever. ❤️",
+        "timestamp": "2026-09-28T06:56:53.603Z",
+        "reactions": {
+          "❤️": 1
+        }
+      }
+    ]
+  }
+}

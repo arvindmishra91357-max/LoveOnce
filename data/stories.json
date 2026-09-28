@@ -1,0 +1,160 @@
+{
+  "default": {
+    "id": "default",
+    "partnerName": "My Love",
+    "yourName": "Arvind",
+    "relationshipDate": "14 February 2025",
+    "specialDate": "Our First Starlit Walk",
+    "favoriteMemory": "Walking together under the midnight sky when the whole world was asleep.",
+    "favoriteColor": "#ff1a53",
+    "romanticMessage": "Every picture with you feels like a page from my favorite story. In all the universe, across all stars and timelines, my heart was always searching for you.",
+    "customLoveLetter": "My Dearest Love,\n\nIf I had to live my life all over again, I would find you sooner so that I could love you longer.\n\nFrom the moment you entered my world, everything changed. Colors became brighter, music sounded sweeter, and every quiet dream I held found its destination in your smile.\n\nThank you for being my anchor when storms rise, my laughter when joy is shared, and my favorite thought at the end of every long day. No matter where the winds of tomorrow take us, my heart will forever beat in harmony with yours.\n\nForever and always,\nYours completely 💗",
+    "secretRoomId": "LOV-8F42KQ",
+    "secretKeyword": "moonlight",
+    "flower": "rose",
+    "timeline": [
+      {
+        "year": "2025",
+        "date": "14 February 2025",
+        "title": "When Our Story Began",
+        "caption": "The day two separate journeys merged into one beautiful adventure.",
+        "icon": "❤️"
+      },
+      {
+        "year": "2025",
+        "date": "24 June 2025",
+        "title": "First Starlit Walk",
+        "caption": "Under the quiet moon, where every second felt like pure magic.",
+        "icon": "🌹"
+      },
+      {
+        "year": "2026",
+        "date": "01 January 2026",
+        "title": "Welcoming Forever",
+        "caption": "Counting down the new year in your arms, knowing you are my home.",
+        "icon": "✨"
+      },
+      {
+        "year": "2026",
+        "date": "Today & Always",
+        "title": "Still Falling For You",
+        "caption": "Every heartbeat still whispers your name.",
+        "icon": "♾️"
+      }
+    ],
+    "memories": [
+      {
+        "id": "mem-1",
+        "title": "Under The Midnight Lanterns",
+        "date": "24 June 2025",
+        "originalPhoto": "/assets/images/starlit_walk_art.jpg",
+        "aiArt": "/assets/images/starlit_walk_art.jpg",
+        "caption": "Every picture with you feels like a page from my favorite story. ❤️",
+        "flower": "cherry_blossom"
+      },
+      {
+        "id": "mem-2",
+        "title": "Golden Sunset On The Hill",
+        "date": "14 October 2025",
+        "originalPhoto": "/assets/images/sunset_hill_art.jpg",
+        "aiArt": "/assets/images/sunset_hill_art.jpg",
+        "caption": "Some moments are ordinary, but with you they become my favorite memories. ✨",
+        "flower": "rose"
+      }
+    ],
+    "bookPages": [
+      {
+        "pageNumber": 1,
+        "type": "cover_intro",
+        "title": "Our Story",
+        "subtitle": "Chapter 1",
+        "text": "Every beautiful story starts with one moment...",
+        "flower": "🌹"
+      },
+      {
+        "pageNumber": 2,
+        "type": "memory_art",
+        "title": "How It Started",
+        "photo": "/assets/images/starlit_walk_art.jpg",
+        "caption": "When our paths crossed, the whole world suddenly made sense. ❤️"
+      },
+      {
+        "pageNumber": 3,
+        "type": "favorite_memory",
+        "title": "One Of My Favorite Memories",
+        "photo": "/assets/images/sunset_hill_art.jpg",
+        "caption": "Sitting side by side watching the golden sun, knowing I never want to be anywhere else. ✨"
+      },
+      {
+        "pageNumber": 4,
+        "type": "reasons",
+        "title": "Things I Love About You",
+        "items": [
+          "Your smile that brightens any cloudy day",
+          "Your kindness and gentle touch",
+          "The way you care when no one is watching",
+          "The way you make ordinary days feel like timeless poetry"
+        ]
+      },
+      {
+        "pageNumber": 5,
+        "type": "collage",
+        "title": "Our Little Moments",
+        "photos": [
+          "/assets/images/starlit_walk_art.jpg",
+          "/assets/images/sunset_hill_art.jpg"
+        ],
+        "caption": "Handcrafted snapshots of our sweetest laughter."
+      },
+      {
+        "pageNumber": 6,
+        "type": "flower_garden",
+        "title": "Flowers For You",
+        "text": "A bouquet of everlasting blooms, each carrying a quiet whisper of love.",
+        "flowers": [
+          "🌹 Rose",
+          "🌷 Tulip",
+          "🌻 Sunflower",
+          "🌸 Cherry Blossom"
+        ]
+      },
+      {
+        "pageNumber": 7,
+        "type": "letter",
+        "title": "A Letter For You",
+        "letter": "My Dearest Love,\n\nIf I had to live my life all over again, I would find you sooner so that I could love you longer.\n\nFrom the moment you entered my world, colors became brighter, music sounded sweeter, and every quiet dream I held found its destination in your smile.\n\nForever and always,\nYours completely 💗"
+      },
+      {
+        "pageNumber": 8,
+        "type": "final",
+        "title": "Forever?",
+        "text": "Our story isn't finished...\nBecause every day with you is another page.\n\nTo be continued... ❤️"
+      },
+      {
+        "pageNumber": 9,
+        "type": "chat_memory",
+        "title": "A Whisper From Our Secret Place",
+        "sender": "Arvind",
+        "text": "Welcome to our secret place. Every word written here stays between us forever. ❤️",
+        "date": "Sep 28, 2026"
+      }
+    ]
+  },
+  "lov-735206e8": {
+    "id": "lov-735206e8",
+    "partnerName": "Sweetheart",
+    "yourName": "Arvind",
+    "relationshipDate": "14 Feb 2025",
+    "specialDate": "",
+    "favoriteMemory": "",
+    "favoriteColor": "#ff1a53",
+    "romanticMessage": "",
+    "customLoveLetter": "",
+    "secretRoomId": "LOV-86C6A1",
+    "flower": "rose",
+    "timeline": [],
+    "memories": [],
+    "bookPages": [],
+    "updatedAt": "2026-09-28T06:56:53.605Z"
+  }
+}

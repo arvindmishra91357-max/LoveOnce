@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2a0822"/>
+      <stop offset="60%" stop-color="#120315"/>
+      <stop offset="100%" stop-color="#050107"/>
+    </radialGradient>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5e8a"/>
+      <stop offset="50%" stop-color="#ff1a53"/>
+      <stop offset="100%" stop-color="#b80036"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+  <!-- Glowing Heart -->
+  <path d="M256 420 C180 340 100 270 100 185 C100 120 150 75 215 75 C250 75 256 95 256 95 C256 95 262 75 297 75 C362 75 412 120 412 185 C412 270 332 340 256 420 Z" 
+        fill="url(#heartGrad)" filter="url(#glow)"/>
+  <circle cx="215" cy="140" r="15" fill="#ffffff" opacity="0.35"/>
+  <text x="256" y="475" text-anchor="middle" fill="#ffd166" font-family="'Playfair Display', serif" font-size="28" letter-spacing="4">LOVEONCE</text>
+</svg>

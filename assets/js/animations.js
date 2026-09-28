@@ -427,6 +427,24 @@ class ILoveYouHeartCanvas {
       });
     }
 
+    // Heart Click Interaction: Boost heartbeat & spawn floating "I LOVE YOU" particles
+    this.canvas.addEventListener('click', (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const clickX = e.clientX || (rect.left + rect.width / 2);
+      const clickY = e.clientY || (rect.top + rect.height / 2);
+      this.pulseSpeed = 2.2;
+      setTimeout(() => { this.pulseSpeed = 1.0; }, 1200);
+
+      if (typeof spawnILoveYouParticle === 'function') {
+        for (let i = 0; i < 6; i++) {
+          spawnILoveYouParticle(clickX, clickY);
+        }
+      }
+      if (window.loveOnceMusic) {
+        window.loveOnceMusic.playChime();
+      }
+    });
+
     const observer = new IntersectionObserver((entries) => {
       this.isVisible = entries[0].isIntersecting;
       if (this.isVisible && !this.animId) {
@@ -681,6 +699,22 @@ function triggerRomanticRain(durationMs = 4000) {
       });
     }
   }, 100);
+}
+
+// ============================================================================
+// 7. FLOATING "I LOVE YOU" PARTICLES (ON HEART CLICK)
+// ============================================================================
+function spawnILoveYouParticle(x, y) {
+  const p = document.createElement('div');
+  p.className = 'floating-iloveyou-particle';
+  const phrases = ['I LOVE YOU ❤️', 'I LOVE YOU 💗', 'FOREVER ✨', 'ALWAYS 🌹', 'MY SOULMATE 💖'];
+  p.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+  p.style.left = `${x}px`;
+  p.style.top = `${y}px`;
+  p.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 120}px`);
+  p.style.setProperty('--rot', `${(Math.random() - 0.5) * 20}deg`);
+  document.body.appendChild(p);
+  p.addEventListener('animationend', () => p.remove());
 }
 
 // Initialize on DOM Ready

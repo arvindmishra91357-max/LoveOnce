@@ -1,0 +1,18 @@
+{
+  "name": "LoveOnce — A Private Digital Love Story",
+  "short_name": "LoveOnce",
+  "description": "A private romantic love experience with personalized memories, Ghibli storybook art, flowers, and secret chat.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080309",
+  "theme_color": "#080309",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/icon-heart.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
